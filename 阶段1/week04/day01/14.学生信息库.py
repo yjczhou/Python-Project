@@ -112,7 +112,7 @@ class StudentInfo(object):
         if 'sex' in student:
             self.students[id_]['sex'] =student['sex']
     # 查询信息
-    # 优化函数，支持模糊匹配
+    # 优化函数，支持模糊匹配  
     def search_users(self,**kwargs):
         values = list(self.students.values())
         key = None
