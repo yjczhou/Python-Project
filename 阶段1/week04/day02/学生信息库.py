@@ -1,6 +1,12 @@
 # coding:utf-8
 
 '''学生信息库'''
+# 定义异常类 缺少参数错误
+class NotArgError(Exception):
+    def __init__(self,message):
+        self.message = message
+        
+
 # 升级，使用类的形式
 class StudentInfo(object):
     def __init__(self,students):
@@ -23,10 +29,10 @@ class StudentInfo(object):
         return self.students
     # 添加学生的信息
     def add(self,**student):
-        check =  self.check_user_info(**student)
-        if check!=True:
-            print('添加失败:',check)
-            return
+        try:
+            self.check_user_info(**student) #TODO: 添加异常捕获
+        except Exception as e:
+            raise e
         # d={'1':'6','2':'5','3':'4'}
         # 1、max() 函数中没有 key 参数时，求的是 key 的最大值
         # print(max(d))
@@ -40,9 +46,10 @@ class StudentInfo(object):
     def adds(self,new_students):
         for student in new_students:
             # 检查每一项是否合法
-            check = self.check_user_info(**student)
-            if check!=True:
-                print('添加失败:',check,student.get('name'))
+            try:
+                self.check_user_info(**student)
+            except Exception as e:
+                print('添加失败:',student.get('name'))
                 # 不合法就打断本次循环，执行下一次循环
                 continue
             # 调用私有函数处理添加功能
@@ -92,7 +99,12 @@ class StudentInfo(object):
     def updates(self,update_students):
         for student in update_students:
             # print(student)
-            id_ = list(student.keys())[0]
+            try:
+                id_ = list(student.keys())[0]
+            except IndexError as e:
+                print(e)
+                continue
+                
             # print(id_)
             if id_ not in self.students:
                 print('没有这个学生信息')
@@ -114,6 +126,7 @@ class StudentInfo(object):
     # 查询信息
     # 优化函数，支持模糊匹配
     def search_users(self,**kwargs):
+        assert len(kwargs)==1,'参数数量应该为1'
         values = list(self.students.values())
         key = None
         value = None
@@ -127,8 +140,7 @@ class StudentInfo(object):
         elif 'age' in kwargs:
             key = 'age'
         else:
-            print('没有发现搜索的关键字')
-            return
+           raise NotArgError('没有发现搜索关键字')
         value = kwargs[key]
         # values里面每一个都是一个对象
         for user in values:
@@ -137,15 +149,28 @@ class StudentInfo(object):
         return result
     # 检查用户信息
     def check_user_info(self,**kwargs):
+        assert len(kwargs) == 4,'参数必须是4个'
+        
         if 'name' not in kwargs:
-            return '没有发现学生姓名'
+            raise NotArgError('没有学生姓名参数')
         if 'age' not in kwargs:
-            return '没有发现学生年龄'
+            raise NotArgError('没有学生年龄参数')
         if 'class_number' not in kwargs:
-            return '没有发现学生班级'
+            raise NotArgError('没有学生班级参数')
         if 'sex' not in kwargs:
-            return '没有发现学生性别'
-        return True
+            raise NotArgError('没有学生性别参数')
+
+        name_value = kwargs['name']
+        age_value = kwargs['age']
+        class_number_value = kwargs['class_number']
+        sex_value = kwargs['sex']
+        
+        # 内置函数isinstace(对比的数据, 目标类型)
+        # 判断变量是那种类型
+        assert isinstance(name_value,str),'name应该是字符串类型'
+        assert isinstance(age_value,int),'age应该是整型'
+        assert isinstance(class_number_value,str),'class_number应该是字符串'
+        assert isinstance(sex_value,str),'sex应该是字符串类型'
         
 
 students ={
