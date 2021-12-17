@@ -36,6 +36,6 @@ print(multip_result)
 
 # 字符串累加
 add_result_str = reduce(lambda x,y:x+y,friuts)
-# 字符串累乘
-multip_result_str = reduce(lambda x,y:x*y,friuts)
-print(multip_result_str)
+# 字符串累乘 报错
+# multip_result_str = reduce(lambda x,y:x*y,friuts)
+# print(multip_result_str)

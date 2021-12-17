@@ -34,6 +34,7 @@ def c(name):
     print(name)
 
 a(c('dewei')) # dewei
+
 # 方法2
 # 绑定装饰器
 @a
