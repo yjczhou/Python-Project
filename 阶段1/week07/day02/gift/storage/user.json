@@ -1,0 +1,21 @@
+{
+    "dewei": {
+        "username": "dewei",
+        "role": "admin",
+        "active": true,
+        "create_time": 1639809163.034813,
+        "update_time": 1639809163.034813,
+        "gifts": []
+    },
+    "\u5c0f\u6155": {
+        "username": "\u5c0f\u6155",
+        "role": "normal",
+        "active": true,
+        "create_time": 1639825310.2305596,
+        "update_time": 1639825763.6491778,
+        "gifts": [
+            "ipad2021",
+            "iphoneX"
+        ]
+    }
+}

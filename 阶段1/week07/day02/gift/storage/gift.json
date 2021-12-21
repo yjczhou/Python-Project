@@ -1,0 +1,41 @@
+{
+    "level1": {
+        "level1": {
+            "iphoneX": {
+                "name": "iphoneX",
+                "count": 9
+            },
+            "ipad2021": {
+                "name": "ipad2021",
+                "count": 9
+            }
+        },
+        "level2": {
+            "iphone10": {
+                "name": "iphone10",
+                "count": 120
+            }
+        },
+        "level3": {}
+    },
+    "level2": {
+        "level1": {},
+        "level2": {},
+        "level3": {
+            "ipad": {
+                "name": "ipad",
+                "count": 10
+            }
+        }
+    },
+    "level3": {
+        "level1": {},
+        "level2": {},
+        "level3": {}
+    },
+    "level4": {
+        "level1": {},
+        "level2": {},
+        "level3": {}
+    }
+}
