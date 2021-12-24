@@ -1,0 +1,11 @@
+{#继承#}
+{% extends 'base.html' %}
+{#填坑#}
+{% block title %}免费课程{% endblock %}
+{% block header %}
+    {# 复用父模板中的文字#}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    免费课程内容
+{% endblock %}

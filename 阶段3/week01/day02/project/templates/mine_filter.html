@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义过滤器</title>
+</head>
+<body>
+    <p>{{ name }}</p>
+
+    {# 自定义过滤器的使用   #}
+    {% load format_name %}
+    <p>{{ name|fmt_uname }}</p>
+    <p>{{ name|fmt_uname:2 }}</p>
+</body>
+</html>

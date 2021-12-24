@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>首页-DTL</h1>
+<p>用户名：{{ username }}</p>
+<p>年  龄：{{ age }}</p>
+<img src="{{ img_url }}" alt="">
+<h3>用户列表</h3>
+{% for user in list_user %}
+    <P>用户名：{{ user.name }}</P>
+    <p>年龄：{{ user.age }}</p>
+{% endfor %}
+{#DTL不支持#}
+<h3>用户详细</h3>
+{#<p>{{ user_obj.['user.name'] }}</p>#}
+{#{{ user_obj['user name']}}#}
+
+<h3>调用类的方法</h3>
+{{ cat.display }}
+</body>
+</html>

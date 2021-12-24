@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}问答{% endblock %}
+{% block content %}
+  <aside class="left">
+    左侧内容区域--问答
+  </aside>
+  <aside class="right">
+    右侧内容区域--问答
+    <p>问题：{{ question }}</p>
+    {# 公用部分 #}
+    {% include 'sidebar.html' with question='问题1' %}
+  </aside>
+{% endblock %}

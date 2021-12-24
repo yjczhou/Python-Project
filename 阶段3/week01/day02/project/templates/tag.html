@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DTL标签练习</title>
+    <style type="text/css">
+        .raw1{
+            color: red;
+        }
+        .raw2{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+<h3>用户列表</h3>
+{% for user in list_user%}
+{#    <p>第{{ forloop.counter }}用户名是：{{ user.name }} 年龄：{{ user.age }}</p>#}
+    <p class="{% cycle 'raw1' 'raw2' %}">第{{ forloop.counter }}用户的信息<br>
+    {% for key,value in user.items %}
+        {{ key }}：{{ value }}
+    {% endfor %}
+    </p>
+{% empty %}
+    {# 当循环里没有数据时，会展示这里的信息#}
+    <p>暂无用户信息</p>
+{% endfor %}
+
+{#url标签的使用#}
+{#依靠name值找#}
+<a href="{% url 'index'%}">首页</a>
+
+{#静态文件解析标签#}
+{% load static %}
+{#这里static是看setting.py文件里STATIC_URL里面设置的静态目录是哪一个#}
+{#如果我设置的是public的话就是填 images/1.jpg#}
+{#如果我设置的是atatic的话就是填 1.jpg#}
+<img src="{% static '1.jpg' %}">
+<a href="javascript:console.log('{% static '1.jpg' %}');">shuchu</a>
+
+</body>
+</html>

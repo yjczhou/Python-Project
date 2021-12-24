@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器的使用</title>
+</head>
+<body>
+    {# 使用过滤器将字母变成大写#}
+    <p>{{ name|upper }}</p>
+
+    {# 默认显示过滤器 #}
+    <p>{{ list_user|default:'用户列表为空' }}</p>
+    <p>{{ user_info|default_if_none:'用户详细信息为空' }}</p>
+
+    {# 数字四舍五入 #}
+    {# 保留三位小数  #}
+    <p>{{ pi|floatformat:3 }}</p>
+
+    {# 日期时间格式化 #}
+    <p>{{ my_date|date:'Y-m-d'}}</p>
+
+
+    {#  用自动转义功能  #}
+    <p>{{ html }}</p>
+    {# 富文本内容的转义显示，有html效果 #}
+    <p>{{ html|safe }}</p>
+
+    {# 字符串截取 #}
+    <p>{{ html|truncatechars:5 }}</p>
+    <p>{{ html|truncatechars_html:5|safe }}</p>
+</body>
+</html>

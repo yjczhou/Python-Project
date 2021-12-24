@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}文章页面{% endblock %}
+{% block content %}
+        <aside class="left">
+            左侧内容区域--手记
+        </aside>
+        <aside class="right">
+            右侧内容区域-- 手记
+            {% include 'sidebar.html' %}
+        </aside>
+{% endblock %}
